@@ -52,7 +52,6 @@ class GameViewController: UIViewController {
     }
     
     private func goToNextState() {
-        // Сразу нет победителя :(
         if let gameIsEndedState = gameModeStrategy.endState() {
             self.currentState = gameIsEndedState
             return
@@ -64,9 +63,9 @@ class GameViewController: UIViewController {
         switch gameMode {
         case .pvAI:
             gameModeStrategy = AIGameModeStrategy(gameViewController: self,
-                                                   gameboard: gameboard,
-                                                   gameboardView: gameboardView,
-                                                   referee: referee)
+                                                  gameboard: gameboard,
+                                                  gameboardView: gameboardView,
+                                                  referee: referee)
         default:
             gameModeStrategy = PVPGameModeStrategy(gameViewController: self,
                                                    gameboard: gameboard,

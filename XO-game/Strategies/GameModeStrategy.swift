@@ -56,8 +56,12 @@ class PVPGameModeStrategy: GameModeStrategy {
               let referee = referee
         else { return nil }
         let winner = referee.determineWinner()
+        if winner != nil {
         return GameEndedState(winner: winner,
                               gameViewController: gameViewController)
+        } else {
+            return nil
+        }
         
     }
     
@@ -113,7 +117,11 @@ class AIGameModeStrategy: GameModeStrategy {
               let referee = referee
         else { return nil }
         let winner = referee.determineWinner()
-        return GameEndedState(winner: winner,
-                              gameViewController: gameViewController)
+        if winner != nil {
+            return GameEndedState(winner: winner,
+                                    gameViewController: gameViewController)
+        } else {
+            return nil
+        }
     }
 }
